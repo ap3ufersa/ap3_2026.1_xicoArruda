@@ -42,6 +42,7 @@ inclusion: always
 - Sempre explicar siglas de comandos de linha de comando para auxiliar memorização
 
 
+Outra forma, usar no GPT e congêneres com interface web:
 
 # Engineering Traits
 
