@@ -9,7 +9,7 @@ Repositório de Algoritmos e Programação 3 da UFERSA Angicos no semestre 2026.
 ### Aula 1 - 06/03/2026 (0,0)
 - **Tópicos:** Git, GitHub, controle de versão, configuração do ambiente
 - **Exercícios:** [Personalize sua IA](unidade1/traits.md)
-- **Prazo de entrega:** -
+- **Prazo de entrega:** 06/03/2026 até 22:30h
 
 ### Aula 2 - 13/03/2026 (1,0)
 - **Tópicos:** Olá mundo, tipos primitivos
@@ -20,12 +20,12 @@ Repositório de Algoritmos e Programação 3 da UFERSA Angicos no semestre 2026.
 
 Não tem aula.
 
-### Aula 3 - 27/03/2026 (1,0)
-- **Tópicos:** Olá mundo, tipos primitivos
+### Aula 3 - 27/03/2026 (2,0)
+- **Tópicos:** Classe, objeto, método, atributo
 - **Exercícios:** [Clique aqui](unidade1/aula3.md)
 - **Prazo de entrega:** 27/03/2026 até 22:30h
 
-### Aula § - 03/04/2026 (quinta-feira) - Feriado de Paixão de Cristo
+### Aula § - 03/04/2026 - Feriado de Paixão de Cristo
 
 Não tem aula.
 
@@ -34,18 +34,18 @@ Não tem aula.
 - **Exercícios:** [Clique aqui](unidade1/aula4.md)
 - **Prazo de entrega:** 10/04/2026 até 22:30h
 
-### Aula 5 - 17/04/2026 (2,0)
-- **Tópicos:** Classe, objeto, método, atributo
-- **Exercícios:** [Clique aqui](unidade1/aula5.md)
-- **Prazo de entrega:** 17/04/2026 até 22:30h
-
 ---
 
 ## Unidade 2
 
-### Aula 5 - 24/04/2026 (1,0)
+### Aula 5 - 17/04/2026 (2,0)
 - **Tópicos:** Scanner, datas
 - **Exercícios:** [Clique aqui](unidade2/aula5.md)
+- **Prazo de entrega:** 17/04/2026 até 22:30h
+
+### Aula 5 - 24/04/2026 (1,0)
+- **Tópicos:** Visibilidade, composição
+- **Exercícios:** [Clique aqui](unidade2/aula6.md)
 - **Prazo de entrega:** 24/04/2026 até 22:30h
 
 ### Aula § - 01/05/2026 (sexta-feira) - Feriado do Dia do Trabalho
@@ -54,12 +54,12 @@ Não tem aula.
 
 ### Aula 6 - 08/05/2026 (1,0)
 - **Tópicos:** Visibilidade, composição
-- **Exercícios:** [Clique aqui](unidade2/aula6.md)
+- **Exercícios:** [Clique aqui](unidade2/aula7.md)
 - **Prazo de entrega:** 08/05/2026 até 22:30h
 
 ### Aula 7 - 15/05/2026 (1,0)
 - **Tópicos:** Listas e Java Collections
-- **Exercícios:** [Clique aqui](unidade2/aula7.md)
+- **Exercícios:** [Clique aqui](unidade2/aula8.md)
 - **Prazo de entrega:** 15/05/2026 até 22:30h
 
 ### Aula 8 - 22/05/2026 (2,0)
@@ -72,7 +72,7 @@ Não tem aula.
 ## Unidade 3
 
 ### Aula 9 - 29/05/2026 (2,0)
-- **Tópicos:** Herança e Polimorfismo
+- **Tópicos:** Exceptions
 - **Exercícios:** [Clique aqui](unidade3/aula9.md)
 - **Prazo de entrega:** 29/05/2026 até 22:30h
 
