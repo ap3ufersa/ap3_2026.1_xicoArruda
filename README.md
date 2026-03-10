@@ -8,7 +8,7 @@ Repositório de Algoritmos e Programação 3 da UFERSA Angicos no semestre 2026.
 
 ### Aula 1 - 06/03/2026 (0,0)
 - **Tópicos:** Git, GitHub, controle de versão, configuração do ambiente
-- **Exercícios:** [Personalize sua IA](unidade1/traits.md)
+- **Exercícios:** [Personalize sua IA](https://raw.githubusercontent.com/ap3ufersa/ap3_2026.1_xicoArruda/main/unidade1/traits.md)
 - **Prazo de entrega:** 06/03/2026 até 22:30h
 
 ### Aula 2 - 13/03/2026 (1,0)
