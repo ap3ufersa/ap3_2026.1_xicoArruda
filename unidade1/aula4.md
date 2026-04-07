@@ -37,7 +37,7 @@ classDiagram
     Aluno "1" -- "1" TestaAluno : testa
 ```
 
-3. Modificação - Turma com Ranking: Implemente um sistema de gerenciamento de turma com as seguintes regras de negócio:
+2. Modificação - Turma com Ranking: Implemente um sistema de gerenciamento de turma com as seguintes regras de negócio:
 
 - `Aluno` possui: matrícula, nome (String) e quatro notas (double).
 - A média é calculada descartando a **menor nota** entre as quatro (média das três maiores).
