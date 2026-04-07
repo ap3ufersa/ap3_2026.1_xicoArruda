@@ -14,9 +14,7 @@ Gabaritos para ajudar nos exercícios [aqui](gabaritos).
 
 Salve na pasta `/unidade1/aula3/?.java`
 
-1. Programação Estruturada - Cálculo de Média: Crie um programa Java que calcule a média de três notas usando programação estruturada. Não use classes ou objetos além do `main`.
-
-2. Programação O.O. — Aluno com Cálculo de Média: Crie uma classe `Aluno` com atributos nome e três notas. Implemente métodos para calcular a média, verificar aprovação (média >= 7.0) e exibir o nome em maiúsculas e minúsculas. Crie `TestaAluno` para instanciar três alunos e exibir suas informações. Gere getters, setters e `toString`.
+1. Programação O.O. — Aluno com Cálculo de Média: Crie uma classe `Aluno` com atributos nome e três notas. Implemente métodos para calcular a média, verificar aprovação (média >= 7.0) e exibir o nome em maiúsculas e minúsculas. Crie `TestaAluno` para instanciar três alunos e exibir suas informações. Gere getters, setters e `toString`.
 
 ```mermaid
 classDiagram
