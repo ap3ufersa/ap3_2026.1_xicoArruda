@@ -2,13 +2,19 @@
 
 ### 0. Gabaritos
 
-Gabaritos para ajudar no exercícios [aqui](gabaritos).
+Gabaritos para ajudar nos exercícios [aqui](gabaritos).
 
-### 1. Exercícios Resolvidos
+### 1. Considerações sobre OO e tipos primitivos
 
-0. Salve na pasta /unidade1/aula4/?.java
+- **Tipos Primitivos**: tipos de dados básicos fornecidos pela linguagem Java para armazenar valores simples. São armazenados diretamente na memória (_stack_) e têm tamanho fixo. Não são objetos, portanto não possuem métodos associados. Comparações são feitas com operadores `==`, `<`, `>`.
 
-1. Programação O.O. - Aluno com Cálculo de Média: Crie uma classe ```Aluno``` que tenha os atributos nome e três notas. Implemente métodos para calcular a média das notas e para verificar se o aluno foi aprovado (média maior ou igual a 7.0) ou reprovado. Implemente métodos para exibir o nome do aluno em letras maiúsculas e minúsculas. Crie uma classe TestaAluno para instanciar três alunos e exibir suas informações, incluindo a média e o status de aprovação. Implemente/gere automagicamente getters, setters e toString.
+- **Classes (String, Integer)**: em Java, classes são "moldes" para objetos. Um objeto é uma instância de uma classe. Variáveis que são instâncias de classes são referências a objetos armazenados na memória (_heap_). Classes podem ter métodos e atributos. Usa-se `.equals()` para comparar conteúdo; `==` compara referências de memória.
+
+### 2. Exercícios Resolvidos
+
+Salve na pasta `/unidade1/aula4/?.java`
+
+1. Programação O.O. — Aluno com Cálculo de Média: Crie uma classe `Aluno` com atributos nome e três notas. Implemente métodos para calcular a média, verificar aprovação (média >= 7.0) e exibir o nome em maiúsculas e minúsculas. Crie `TestaAluno` para instanciar três alunos e exibir suas informações. Gere getters, setters e `toString`.
 
 ```mermaid
 classDiagram
@@ -19,20 +25,68 @@ classDiagram
             - double nota2
             - double nota3
             + double getMedia()
-            + boolean isAprovadoMedia()
+            + boolean isAprovado()
             + String getNomeMaiusculo()
             + String getNomeMinusculo()
             // get, set, toString()
         }
-
         class TestaAluno {
-            +void main()
+            + void main()
         }
     }
     Aluno "1" -- "1" TestaAluno : testa
 ```
 
+3. Modificação - Turma com Ranking: Implemente um sistema de gerenciamento de turma com as seguintes regras de negócio:
+
+- `Aluno` possui: matrícula, nome (String) e quatro notas (double).
+- A média é calculada descartando a **menor nota** entre as quatro (média das três maiores).
+- Situação: aprovado se média >= 7.0; recuperação se média >= 5.0 e < 7.0; reprovado se média < 5.0.
+- Uma `Turma` possui uma lista de alunos e os seguintes comportamentos:
+  - adicionar aluno
+  - listar todos os alunos com nome, média e situação
+  - retornar a média geral da turma
+- `MainTurma` instancia uma turma, adiciona quatro alunos com notas aleatórias e exibe o relatório da turma.
+
+```mermaid
+classDiagram
+    namespace package_turma {
+        class Aluno {
+            - int matricula
+            - String nome
+            - double nota1
+            - double nota2
+            - double nota3
+            - double nota4
+            + boolean isAprovado()
+            + String getNomeMaiusculo()
+            + String getNomeMinusculo()
+            + double getMedia()
+            + String getSituacao()
+            // get, set, toString()
+        }
+
+        class Turma {
+            - List~Aluno~ alunos
+            + void adicionarAluno(Aluno aluno)
+            + void listarAlunos()
+            + double getMediaDaTurma()
+        }
+
+        class TestaTurma {
+            + void main()
+        }
+    }
+    Turma "1" o-- "0..*" Aluno : contém
+    TestaTurma --> Turma : testa
+```
+
+- `getMedia()` em `Aluno` deve usar `Math.min()` para descartar a menor nota.
+- Nenhum cálculo em `MainTurma`; toda lógica fica em `Aluno` e `Turma`.
+
 ### Exercícios em Sala
+
+Gabaritos para ajudar no exercícios [aqui](gabaritos).
 
 Após concluir cada questão, faça _commit_ localmente e sincronize-o (_push_) com o seu repositório remoto no GitHub. Conforme [figura](https://drive.google.com/open?id=1dV5TwUdMxSmh80sx13epVcJFewIT_MVk).
 

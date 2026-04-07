@@ -6,7 +6,7 @@ Gabaritos para ajudar nos exercícios [aqui](gabaritos).
 
 ### 1. Considerações sobre OO e tipos primitivos
 
-- **Tipos Primitivos**: tipos de dados básicos fornecidos pela linguagem Java para armazenar valores simples. São armazenados diretamente na memória (_stack_) e têm tamanho fixo. Não são objetos, portanto não possuem métodos associados. Comparações são feitas com operadores `==`, `<`, `>`. Os limites [são esses](tiposPrimitivos.png).
+- **Tipos Primitivos**: tipos de dados básicos fornecidos pela linguagem Java para armazenar valores simples. São armazenados diretamente na memória (_stack_) e têm tamanho fixo. Não são objetos, portanto não possuem métodos associados. Comparações são feitas com operadores `==`, `<`, `>`.
 
 - **Classes (String, Integer)**: em Java, classes são "moldes" para objetos. Um objeto é uma instância de uma classe. Variáveis que são instâncias de classes são referências a objetos armazenados na memória (_heap_). Classes podem ter métodos e atributos. Usa-se `.equals()` para comparar conteúdo; `==` compara referências de memória.
 
@@ -37,17 +37,16 @@ classDiagram
     Aluno "1" -- "1" TestaAluno : testa
 ```
 
-3. Turma com Ranking: Implemente um sistema de gerenciamento de turma com as seguintes regras de negócio:
+3. Modificação - Turma com Ranking: Implemente um sistema de gerenciamento de turma com as seguintes regras de negócio:
 
-- Um `Aluno` possui: matrícula (int), nome (String), e quatro notas (double).
+- `Aluno` possui: matrícula, nome (String) e quatro notas (double).
 - A média é calculada descartando a **menor nota** entre as quatro (média das três maiores).
 - Situação: aprovado se média >= 7.0; recuperação se média >= 5.0 e < 7.0; reprovado se média < 5.0.
 - Uma `Turma` possui uma lista de alunos e os seguintes comportamentos:
   - adicionar aluno
   - listar todos os alunos com nome, média e situação
-  - retornar o aluno com a maior média (destaque da turma)
   - retornar a média geral da turma
-- `MainTurma` instancia uma turma, adiciona pelo menos quatro alunos com notas variadas e exibe o relatório completo.
+- `MainTurma` instancia uma turma, adiciona quatro alunos com notas aleatórias e exibe o relatório da turma.
 
 ```mermaid
 classDiagram
@@ -59,6 +58,9 @@ classDiagram
             - double nota2
             - double nota3
             - double nota4
+            + boolean isAprovado()
+            + String getNomeMaiusculo()
+            + String getNomeMinusculo()
             + double getMedia()
             + String getSituacao()
             // get, set, toString()
@@ -68,8 +70,7 @@ classDiagram
             - List~Aluno~ alunos
             + void adicionarAluno(Aluno aluno)
             + void listarAlunos()
-            + Aluno getDestaque()
-            + double getMediaGeral()
+            + double getMediaDaTurma()
         }
 
         class TestaTurma {
@@ -81,9 +82,7 @@ classDiagram
 ```
 
 - `getMedia()` em `Aluno` deve usar `Math.min()` para descartar a menor nota.
-- `getDestaque()` em `Turma` deve percorrer a lista sem usar streams.
 - Nenhum cálculo em `MainTurma`; toda lógica fica em `Aluno` e `Turma`.
-- Gere getters, setters e `toString` em `Aluno`.
 
 ### Exercícios em Sala
 
