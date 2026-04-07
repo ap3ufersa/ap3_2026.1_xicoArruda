@@ -126,5 +126,8 @@ Não tem aula.
 - [Não terceirize suas decisões - Fábio Akita](https://www.youtube.com/watch?v=D3L8IOncLkg)
 - [Crise na Engenharia de Software? - Renato Augusto](https://youtu.be/oDXDYjksMds?si=iwzvwaMtw1rxIpOu)
 
+### Sobre Multithread
+- [Threads - por Core Dumped](www.youtube.com/watch?v=IMceN4_rie)
+
 ### Mudando o lero-lero do ChatGPT
 - [Mudando a personalidade do GPT - Fábio Akita](https://akitaonrails.com/2025/04/28/destruindo-a-personalidade-do-chatgpt-4o/)
