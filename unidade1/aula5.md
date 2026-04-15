@@ -60,7 +60,7 @@ Salve na pasta `/unidade1/aula5/?.java`
 Partindo das classes `Aluno` e `Turma` da aula 4, modifique `TestaTurma` para que os dados dos alunos sejam lidos do usuário via `Scanner`. Leia matrícula, nome e as quatro notas de três alunos. Ao final, exiba o relatório da turma com nome em maiúsculo, média do aluno, situação de cada aluno e a média geral da turma. 
 
 #### Desafio?
-- Sanitizar a entrada do nome?
+- Sanitizar a entrada do nome? (trim, vazio, tamanho minimo)
 
 - Buscar por nome?
 
