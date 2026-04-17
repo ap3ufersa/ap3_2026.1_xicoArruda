@@ -1,9 +1,5 @@
 ### U1 - Aula 4 - 10/04/2026 (2,0) - Classe, objeto, método, atributo
 
-### 0. Gabaritos
-
-Gabaritos para ajudar nos exercícios [aqui](gabaritos).
-
 ### 1. Considerações sobre OO e tipos primitivos
 
 - **Tipos Primitivos**: tipos de dados básicos fornecidos pela linguagem Java para armazenar valores simples. São armazenados diretamente na memória (_stack_) e têm tamanho fixo. Não são objetos, portanto não possuem métodos associados. Comparações são feitas com operadores `==`, `<`, `>`.
