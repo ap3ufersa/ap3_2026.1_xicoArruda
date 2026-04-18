@@ -8,7 +8,6 @@ public class Aluno {
     double nota4 = -1;
 
     public Aluno(){
-        nomeCompleto = 
     }
 
     public Aluno(String nomeDoAluno){
