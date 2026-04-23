@@ -26,11 +26,6 @@ public class Turma {
         return mediaGeral;
     }
 
-
-//da turma com nome em maiúsculo,
-//  média do aluno, situação de cada aluno e 
-// a média geral da turma.
-
     String gerarRelatorio(){
         String textoFinal = "";
         for (Aluno umAluno : osAlunos){
@@ -42,9 +37,4 @@ public class Turma {
         textoFinal += " media da turma=" + getMediaDaTurma();
         return textoFinal;
     }
-
-
-
-
-
 }
