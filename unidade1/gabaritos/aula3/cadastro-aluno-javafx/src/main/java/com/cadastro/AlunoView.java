@@ -1,8 +1,6 @@
 package com.cadastro;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.DoubleBinding;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -24,18 +22,14 @@ public class AlunoView {
     private final TextField txtNota4     = new TextField();
     private final Label     lblStatus    = new Label();
     private final Button    btnAcao      = new Button("Adicionar");
+    private final Button    btnCancelar  = new Button("Cancelar");
 
     private Aluno emEdicao = null;
 
     public void iniciar(Stage stage) {
-        TableView<Aluno> tabela = buildTabela();
-
         btnAcao.setOnAction(e -> onAcao());
-
-        Button btnCancelar = new Button("Cancelar");
         btnCancelar.setOnAction(e -> cancelarEdicao());
         btnCancelar.setVisible(false);
-        btnAcao.setUserData(btnCancelar);
 
         txtMatricula.setPromptText("ex: 2026001");
         txtNota1.setPromptText("0 – 10");
@@ -50,8 +44,7 @@ public class AlunoView {
         form.addRow(1, new Label("Nota 1:"),    txtNota1,     new Label("Nota 2:"), txtNota2);
         form.addRow(2, new Label("Nota 3:"),    txtNota3,     new Label("Nota 4:"), txtNota4);
 
-        HBox botoes = new HBox(8, btnAcao, btnCancelar);
-        VBox root   = new VBox(10, form, botoes, lblStatus, tabela);
+        VBox root = new VBox(10, form, new HBox(8, btnAcao, btnCancelar), lblStatus, buildTabela());
         root.setPadding(new Insets(16));
 
         stage.setScene(new Scene(root, 980, 500));
@@ -63,93 +56,72 @@ public class AlunoView {
         TableView<Aluno> tabela = new TableView<>(controller.getAlunos());
         tabela.setEditable(true);
 
-        // Matrícula
         TableColumn<Aluno, Integer> colMatricula = new TableColumn<>("Matrícula");
         colMatricula.setCellValueFactory(c -> c.getValue().matriculaProperty().asObject());
         colMatricula.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         colMatricula.setOnEditCommit(e -> { if (e.getNewValue() != null) e.getRowValue().setMatricula(e.getNewValue()); });
         colMatricula.setPrefWidth(90);
 
-        // Nome (exibe em MAIÚSCULO — usa getNomeMaiusculo(), reage a mudanças na property)
         TableColumn<Aluno, String> colNome = new TableColumn<>("Nome");
-        colNome.setCellValueFactory(c -> {
-            Aluno a = c.getValue();
-            return Bindings.createStringBinding(a::getNomeMaiusculo, a.nomeProperty());
-        });
+        colNome.setCellValueFactory(c -> Bindings.createStringBinding(
+            c.getValue()::getNomeMaiusculo, c.getValue().nomeProperty()));
         colNome.setCellFactory(TextFieldTableCell.forTableColumn());
         colNome.setOnEditCommit(e -> e.getRowValue().setNome(e.getNewValue()));
-        colNome.setPrefWidth(180);
+        colNome.setPrefWidth(200);
 
-        // Nome minúsculo (coluna extra para demonstrar getNomeMinusculo())
         TableColumn<Aluno, String> colNomeMin = new TableColumn<>("Nome (minúsculo)");
-        colNomeMin.setCellValueFactory(c -> {
-            Aluno a = c.getValue();
-            return Bindings.createStringBinding(a::getNomeMinusculo, a.nomeProperty());
-        });
-        colNomeMin.setPrefWidth(180);
+        colNomeMin.setCellValueFactory(c -> Bindings.createStringBinding(
+            c.getValue()::getNomeMinusculo, c.getValue().nomeProperty()));
+        colNomeMin.setPrefWidth(200);
 
-        // Notas
-        TableColumn<Aluno, Double> colN1 = colNota("N1", 1);
-        TableColumn<Aluno, Double> colN2 = colNota("N2", 2);
-        TableColumn<Aluno, Double> colN3 = colNota("N3", 3);
-        TableColumn<Aluno, Double> colN4 = colNota("N4", 4);
-
-        // Média (reativa — recalcula ao editar qualquer nota)
         TableColumn<Aluno, Double> colMedia = new TableColumn<>("Média");
         colMedia.setCellValueFactory(c -> {
             Aluno a = c.getValue();
-            DoubleBinding binding = new DoubleBinding() {
-                { super.bind(a.nota1Property(), a.nota2Property(), a.nota3Property(), a.nota4Property()); }
-                @Override protected double computeValue() { return a.getMedia(); }
-            };
-            return binding.asObject();
+            return Bindings.createDoubleBinding(
+                a::getMedia, a.nota1Property(), a.nota2Property(), a.nota3Property(), a.nota4Property()
+            ).asObject();
         });
         colMedia.setPrefWidth(65);
         colMedia.setStyle("-fx-alignment: CENTER;");
 
-        // Situação (reativa — usa getSituacao() com três estados)
         TableColumn<Aluno, String> colSituacao = new TableColumn<>("Situação");
         colSituacao.setCellValueFactory(c -> {
             Aluno a = c.getValue();
             return Bindings.createStringBinding(
-                a::getSituacao,
-                a.nota1Property(), a.nota2Property(), a.nota3Property(), a.nota4Property()
-            );
+                a::getSituacao, a.nota1Property(), a.nota2Property(), a.nota3Property(), a.nota4Property());
         });
         colSituacao.setPrefWidth(90);
         colSituacao.setStyle("-fx-alignment: CENTER;");
 
         tabela.getColumns().addAll(
-            colMatricula, colNome, colNomeMin, colN1, colN2, colN3, colN4,
+            colMatricula, colNome, colNomeMin,
+            colNota("N1", 1), colNota("N2", 2), colNota("N3", 3), colNota("N4", 4),
             colMedia, colSituacao, buildColunaAcoes()
         );
         tabela.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         return tabela;
     }
 
-    private TableColumn<Aluno, Double> colNota(String titulo, int numero) {
+    private TableColumn<Aluno, Double> colNota(String titulo, int n) {
         TableColumn<Aluno, Double> col = new TableColumn<>(titulo);
         col.setPrefWidth(55);
         col.setStyle("-fx-alignment: CENTER;");
         col.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        switch (numero) {
-            case 1 -> {
-                col.setCellValueFactory(c -> c.getValue().nota1Property().asObject());
-                col.setOnEditCommit(e -> { if (e.getNewValue() != null) e.getRowValue().setNota1(e.getNewValue()); });
+        col.setCellValueFactory(c -> switch (n) {
+            case 1 -> c.getValue().nota1Property().asObject();
+            case 2 -> c.getValue().nota2Property().asObject();
+            case 3 -> c.getValue().nota3Property().asObject();
+            default -> c.getValue().nota4Property().asObject();
+        });
+        col.setOnEditCommit(e -> {
+            if (e.getNewValue() == null) return;
+            switch (n) {
+                case 1 -> e.getRowValue().setNota1(e.getNewValue());
+                case 2 -> e.getRowValue().setNota2(e.getNewValue());
+                case 3 -> e.getRowValue().setNota3(e.getNewValue());
+                default -> e.getRowValue().setNota4(e.getNewValue());
             }
-            case 2 -> {
-                col.setCellValueFactory(c -> c.getValue().nota2Property().asObject());
-                col.setOnEditCommit(e -> { if (e.getNewValue() != null) e.getRowValue().setNota2(e.getNewValue()); });
-            }
-            case 3 -> {
-                col.setCellValueFactory(c -> c.getValue().nota3Property().asObject());
-                col.setOnEditCommit(e -> { if (e.getNewValue() != null) e.getRowValue().setNota3(e.getNewValue()); });
-            }
-            default -> {
-                col.setCellValueFactory(c -> c.getValue().nota4Property().asObject());
-                col.setOnEditCommit(e -> { if (e.getNewValue() != null) e.getRowValue().setNota4(e.getNewValue()); });
-            }
-        }
+        });
         return col;
     }
 
@@ -160,7 +132,6 @@ public class AlunoView {
         col.setCellFactory(tc -> new TableCell<>() {
             private final Button btnEditar  = new Button("✎");
             private final Button btnRemover = new Button("✕");
-            private final HBox   box        = new HBox(6, btnEditar, btnRemover);
 
             {
                 btnEditar.setStyle("-fx-cursor: hand;");
@@ -175,22 +146,22 @@ public class AlunoView {
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
-                setGraphic(empty ? null : box);
+                setGraphic(empty ? null : new HBox(6, btnEditar, btnRemover));
             }
         });
         return col;
     }
 
-    private void iniciarEdicao(Aluno aluno) {
-        emEdicao = aluno;
-        txtMatricula.setText(String.valueOf(aluno.getMatricula()));
-        txtNome.setText(aluno.getNome());
-        txtNota1.setText(String.valueOf(aluno.getNota1()));
-        txtNota2.setText(String.valueOf(aluno.getNota2()));
-        txtNota3.setText(String.valueOf(aluno.getNota3()));
-        txtNota4.setText(String.valueOf(aluno.getNota4()));
+    private void iniciarEdicao(Aluno a) {
+        emEdicao = a;
+        txtMatricula.setText(String.valueOf(a.getMatricula()));
+        txtNome.setText(a.getNome());
+        txtNota1.setText(String.valueOf(a.getNota1()));
+        txtNota2.setText(String.valueOf(a.getNota2()));
+        txtNota3.setText(String.valueOf(a.getNota3()));
+        txtNota4.setText(String.valueOf(a.getNota4()));
         btnAcao.setText("Salvar");
-        cancelarBtn().setVisible(true);
+        btnCancelar.setVisible(true);
         txtNome.requestFocus();
     }
 
@@ -198,31 +169,27 @@ public class AlunoView {
         emEdicao = null;
         limparCampos();
         btnAcao.setText("Adicionar");
-        cancelarBtn().setVisible(false);
+        btnCancelar.setVisible(false);
         lblStatus.setText("");
     }
 
     private void onAcao() {
-        if (emEdicao != null) {
-            try {
+        try {
+            if (emEdicao != null) {
                 controller.validarEAtualizar(emEdicao,
                     txtMatricula.getText(), txtNome.getText(),
                     txtNota1.getText(), txtNota2.getText(), txtNota3.getText(), txtNota4.getText());
                 cancelarEdicao();
                 status("Aluno atualizado.", false);
-            } catch (IllegalArgumentException ex) {
-                status(ex.getMessage(), true);
-            }
-        } else {
-            try {
+            } else {
                 controller.adicionar(
                     txtMatricula.getText(), txtNome.getText(),
                     txtNota1.getText(), txtNota2.getText(), txtNota3.getText(), txtNota4.getText());
                 limparCampos();
                 status("Aluno adicionado.", false);
-            } catch (IllegalArgumentException ex) {
-                status(ex.getMessage(), true);
             }
+        } catch (IllegalArgumentException ex) {
+            status(ex.getMessage(), true);
         }
     }
 
@@ -234,9 +201,5 @@ public class AlunoView {
     private void status(String msg, boolean erro) {
         lblStatus.setText(msg);
         lblStatus.setStyle(erro ? "-fx-text-fill: red;" : "-fx-text-fill: green;");
-    }
-
-    private Button cancelarBtn() {
-        return (Button) btnAcao.getUserData();
     }
 }
