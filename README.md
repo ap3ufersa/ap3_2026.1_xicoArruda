@@ -44,7 +44,7 @@ Não tem aula.
 ## Unidade 2
 
 ### Aula 6 - 24/04/2026 (1,0)
-- **Tópicos:** Visibilidade, composição
+- **Tópicos:** Scanner, datas
 - **Exercícios:** [Clique aqui](unidade2/aula6.md)
 - **Prazo de entrega:** 24/04/2026 até 22:30h
 
