@@ -14,7 +14,7 @@ Salve na pasta `/unidade2/aula7/?.java`
 
 #### Modificação da Turma com Validação do Nome
 
-Partindo das classes `Aluno` e `Turma` da aula 4, modifique `TestaTurma` para que os dados dos alunos sejam lidos do usuário via `Scanner`. Leia matrícula, nome e as quatro notas de três alunos. Ao final, exiba o relatório da turma com nome em maiúsculo, média do aluno, situação de cada aluno e a média geral da turma. 
+Partindo das classes `Aluno` e `Turma` da aula 4, modifique `TestaTurma` para que os dados dos alunos sejam validados do usuário após inserção via `Scanner`. Leia matrícula, nome e as quatro notas de três alunos. Ao final, exiba o relatório da turma com nome em maiúsculo, média do aluno, situação de cada aluno e a média geral da turma. 
 
 #### Desafio?
 - Sanitizar a entrada do nome? (trim, vazio, tamanho minimo)
