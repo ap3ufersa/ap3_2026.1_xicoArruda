@@ -1,4 +1,4 @@
-ValidarNomete String validarNome(String nome) {
+private String validarNome(String nome) {
     if (nome == null) {
         System.err.println("nome nulo");
         return "SemNome";
