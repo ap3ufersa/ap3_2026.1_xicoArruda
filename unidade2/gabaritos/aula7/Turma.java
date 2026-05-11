@@ -5,17 +5,17 @@ public class Turma {
 
     List<Aluno> osAlunos = new ArrayList<>();
 
-    void adicionarAluno(Aluno novoAluno){
+    void adicionarAluno(Aluno novoAluno) {
         osAlunos.add(novoAluno);
     }
 
-    void listarAlunos(){
+    void listarAlunos() {
         for (Aluno umAluno : osAlunos) {
             System.out.println(umAluno);
         }
     }
 
-    double getMediaDaTurma(){
+    double getMediaDaTurma() {
         double mediaGeral = -1;
         double soma = 0;
         for (Aluno umAluno : osAlunos)
@@ -26,9 +26,9 @@ public class Turma {
         return mediaGeral;
     }
 
-    String gerarRelatorio(){
+    String gerarRelatorio() {
         String textoFinal = "";
-        for (Aluno umAluno : osAlunos){
+        for (Aluno umAluno : osAlunos) {
             textoFinal += umAluno.getNomeMaiusculo();
             textoFinal += " media=" + umAluno.getMedia();
             textoFinal += " situacao=" + umAluno.getSituacao();

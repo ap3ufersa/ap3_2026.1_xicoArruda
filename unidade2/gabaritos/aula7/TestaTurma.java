@@ -5,7 +5,7 @@ public class TestaTurma {
         Turma queridosDeAp3 = new Turma();
         Aluno xico = new Aluno();
         Scanner entrada = new Scanner(System.in);
-        
+
         System.out.println("Nomezinho?");
         xico.setNomeCompleto(entrada.nextLine());
         System.out.println("Nota1");
