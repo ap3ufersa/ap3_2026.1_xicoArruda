@@ -15,30 +15,30 @@ public class Aluno {
     }
 
     private String validarNome(String nomeDoAluno) {
-    if (nomeDoAluno == null) {
-        System.err.println("nomeDoAluno nulo");
-        return "SemNome";
+        if (nomeDoAluno == null) {
+            System.err.println("nomeDoAluno nulo");
+            return "SemNome";
+        }
+
+        String normalizado = nomeDoAluno.trim();
+
+        if (normalizado.isEmpty()) {
+            System.err.println("nomeDoAluno vazio");
+            return "SemNome";
+        }
+
+        if (normalizado.length() < 3) {
+            System.err.println("nomeDoAluno muito curto");
+            return "SemNome";
+        }
+
+        if (!normalizado.matches("[\\p{L} ]+")) {
+            System.err.println("nomeDoAluno contém caracteres inválidos");
+            return "SemNome";
+        }
+
+        return normalizado;
     }
-
-    String normalizado = nomeDoAluno.trim();
-
-    if (normalizado.isEmpty()) {
-        System.err.println("nomeDoAluno vazio");
-        return "SemNome";
-    }
-
-    if (normalizado.length() < 3) {
-        System.err.println("nomeDoAluno muito curto");
-        return "SemNome";
-    }
-
-    if (!normalizado.matches("[\\p{L} ]+")) {
-        System.err.println("nomeDoAluno contém caracteres inválidos");
-        return "SemNome";
-    }
-
-    return normalizado;
-}
 
     public double getMedia() {
 
