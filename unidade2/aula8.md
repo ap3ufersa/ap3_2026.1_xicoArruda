@@ -1,26 +1,20 @@
-### U2 - Aula 7 - 08/05/2026 (2,0) - Visibilidade, composição
+### U2 - Aula 8 - 15/05/2026 (3,0) - Java Collections, herança e polimorfismo
 
 ### 1. Conceitos
 
-- **Debugging em tempos de IA**: encontrar e corrigir defeitos no código. IA erra com confiança. Fazer no vscode...
+### Pra que composição?
 
-- **Scanner**: classe de `java.util` que lê entrada do usuário pelo terminal.
+0. Private, public, protected (+, -, #)
 
-- Private, public, protected (+, -, #)
+1. Composição = relação "tem um" entre objetos, onde um objeto contém ou é formado por outros objetos. Dependência forte, indicando que a existência dos objetos componentes depende do objeto composto (se um desaparece, o outro também desaparece).
 
-### 2. Exercício Resolvido
+2. Em interfaces gráficas, um componente visual contém outros componentes menores (um painel inclui botões, campos de texto e rótulos, de forma hierárquica). Na prática fica [assim](gui_composicao.jpg).
 
-Salve na pasta `/unidade2/aula7/?.java`
+3. Java collections [aqui](https://en.wikipedia.org/wiki/Java_collections_framework#/media/File:Java_collections_framework_class_hierarchy.svg).
 
-#### Modificação da Turma com Validação do Nome
+#### Modificação de Aluno com Lista de Endereços
 
-Partindo das classes `Aluno` e `Turma` da aula 4, modifique `TestaTurma` para que os dados dos alunos sejam validados do usuário após inserção via `Scanner`. Leia matrícula, nome e as quatro notas de três alunos. Ao final, exiba o relatório da turma com nome em maiúsculo, média do aluno, situação de cada aluno e a média geral da turma.
-
-#### Desafio?
-
-- Sanitizar a entrada do nome? (trim, vazio, tamanho minimo)
-
-- Buscar por nome?
+1. Crie uma classe `Aluno` que tenha os atributos nome e três notas. Crie a classe Endereço, com Rua, Bairro e Cidade. Cada aluno tem apenas 1 endereço (ou não...). Componha as classes e teste na classe `TestaAluno`.
 
 ```mermaid
 classDiagram
@@ -32,6 +26,7 @@ classDiagram
             - double nota2
             - double nota3
             - double nota4
+            - endereco: Endereco //list?
             + double getMedia()
             + String getSituacao()
             + boolean isAprovado()
@@ -40,6 +35,14 @@ classDiagram
             - String validarNome()
             // get, set, toString()
         }
+
+        class Endereco {
+            - rua: String
+            - bairro: String
+            - cidade: String
+            // get, set, toString()
+        }
+
         class Turma {
             - List~Aluno~ alunos
             + void adicionarAluno(Aluno aluno)
@@ -47,10 +50,12 @@ classDiagram
             + double getMediaDaTurma()
             + String gerarRelatorio()
         }
+
         class TestaTurma {
             + void main()
         }
     }
+    Aluno "1..3" o-- Endereco : tem
     Turma "1" o-- "0..3" Aluno : contém
     TestaTurma --> Turma : testa
 ```
