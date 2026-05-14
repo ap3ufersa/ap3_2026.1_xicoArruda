@@ -1,19 +1,47 @@
 public class Aluno {
 
-    int matricula = -1;
-    String nomeCompleto = "SemNome";
-    double nota1 = -1;
-    double nota2 = -1;
-    double nota3 = -1;
-    double nota4 = -1;
+    private int matricula = -1;
+    private String nomeCompleto = "SemNome";
+    private double nota1 = -1;
+    private double nota2 = -1;
+    private double nota3 = -1;
+    private double nota4 = -1;
+    private Categoria umaCategoria = null;
 
     public Aluno(){
     }
 
     public Aluno(String nomeDoAluno){
-        nomeCompleto = nomeDoAluno;
+        //this.nomeCompleto = nomeDoAluno;
+        this.nomeCompleto = validarNome(nomeDoAluno);
     }
-    public double getMedia() {
+
+    private String validarNome(String nome) {
+    if (nome == null) {
+        System.err.println("nome nulo");
+        return "SemNome";
+    }
+
+    String normalizado = nome.trim();
+
+    if (normalizado.isEmpty()) {
+        System.err.println("nome vazio");
+        return "SemNome";
+    }
+
+    if (normalizado.length() < 3) {
+        System.err.println("nome muito curto");
+        return "SemNome";
+    }
+
+    if (!normalizado.matches("[\\p{L} ]+")) {
+        System.err.println("nome contém caracteres inválidos");
+        return "SemNome";
+    }
+
+    return normalizado;
+}
+    protected double getMedia() {
 
         double menorNota1Nota2 = Math.min(nota1, nota2);
         double menorNota3Nota4 = Math.min(nota3, nota4);

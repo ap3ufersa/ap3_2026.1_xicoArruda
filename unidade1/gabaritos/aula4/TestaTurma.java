@@ -16,6 +16,7 @@ public class TestaTurma {
         xico.setNota3(entrada.nextDouble());
         System.out.println("Nota4");
         xico.setNota4(entrada.nextDouble());
+        xico.getMedia();
 
         queridosDeAp3.adicionarAluno(xico);
 
