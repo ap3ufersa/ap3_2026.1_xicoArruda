@@ -14,7 +14,7 @@
 
 #### Modificação de Aluno com Lista de Endereços
 
-1. Crie uma classe `Aluno` que tenha os atributos nome e três notas. Crie a classe Endereço, com Rua, Bairro e Cidade. Cada aluno tem apenas 1 endereço (ou não...). Componha as classes e teste na classe `TestaAluno`.
+1. Crie uma classe `Aluno` que tenha os atributos nome e três notas. Crie a classe Endereço, com Rua, Bairro, Cidade e Estado. Cada aluno tem apenas 1 endereço (ou não...). Componha as classes e teste na classe `TestaAluno`.
 
 ```mermaid
 classDiagram
@@ -36,13 +36,6 @@ classDiagram
             // get, set, toString()
         }
 
-        class Endereco {
-            - rua: String
-            - bairro: String
-            - cidade: String
-            // get, set, toString()
-        }
-
         class Turma {
             - List~Aluno~ alunos
             + void adicionarAluno(Aluno aluno)
@@ -55,9 +48,33 @@ classDiagram
             + void main()
         }
     }
-    Aluno "1..3" o-- Endereco : tem
     Turma "1" o-- "0..3" Aluno : contém
     TestaTurma --> Turma : testa
+```
+
+### Endereço:
+
+```mermaid
+classDiagram
+direction LR
+
+class Endereco {
+    - rua: String
+    - bairro: String
+    - cidade: String
+    - estado: Estado
+    // get, set, toString()
+}
+
+class Estado {
+    <<enumeration>>
+    PB
+    RN
+    SP
+    RJ
+}
+
+Endereco "1" --> "1" Estado : tem_um
 ```
 
 ### Exercícios em Sala
