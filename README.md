@@ -48,7 +48,7 @@ Não tem aula.
 
 ## Unidade 2
 
-### Aula 6 - 24/04/2026 (1,0)
+### Aula 6 - 24/04/2026 (0,0)
 
 - **Tópicos:** Scanner, datas
 - **Exercícios:** [Clique aqui](unidade2/aula6.md)
@@ -64,13 +64,13 @@ Não tem aula.
 - **Exercícios:** [Clique aqui](unidade2/aula7.md)
 - **Prazo de entrega:** 08/05/2026 até 22:30h
 
-### Aula 8 - 15/05/2026 (1,0)
+### Aula 8 - 15/05/2026 (3,0)
 
-- **Tópicos:** Listas e Java Collections
+- **Tópicos:** Java Collections, herança e polimorfismo
 - **Exercícios:** [Clique aqui](unidade2/aula8.md)
 - **Prazo de entrega:** 15/05/2026 até 22:30h
 
-### Aula 9 - 22/05/2026 (2,0)
+### Aula 9 - 22/05/2026 (0,0)
 
 - **Tópicos:** Herança e Polimorfismo
 - **Exercícios:** [Clique aqui](unidade2/aula9.md)
