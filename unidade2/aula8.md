@@ -4,13 +4,15 @@
 
 ### Pra que composição?
 
-0. Private, public, protected (+, -, #)
+0. Editor hexadecimal?
 
-1. Composição = relação "tem um" entre objetos, onde um objeto contém ou é formado por outros objetos. Dependência forte, indicando que a existência dos objetos componentes depende do objeto composto (se um desaparece, o outro também desaparece).
+1. Private, public, protected (+, -, #)
 
-2. Em interfaces gráficas, um componente visual contém outros componentes menores (um painel inclui botões, campos de texto e rótulos, de forma hierárquica). Na prática fica [assim](gui_composicao.jpg).
+2. Composição = relação "tem um" entre objetos, onde um objeto contém ou é formado por outros objetos. Dependência forte, indicando que a existência dos objetos componentes depende do objeto composto (se um desaparece, o outro também desaparece).
 
-3. Java collections [aqui](https://en.wikipedia.org/wiki/Java_collections_framework#/media/File:Java_collections_framework_class_hierarchy.svg).
+3. Em interfaces gráficas, um componente visual contém outros componentes menores (um painel inclui botões, campos de texto e rótulos, de forma hierárquica). Na prática fica [assim](gui_composicao.jpg).
+
+4. Java collections [aqui](https://en.wikipedia.org/wiki/Java_collections_framework#/media/File:Java_collections_framework_class_hierarchy.svg).
 
 #### Modificação de Aluno com Lista de Endereços
 
