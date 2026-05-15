@@ -6,6 +6,7 @@ public class Aluno {
     double nota2 = -1;
     double nota3 = -1;
     double nota4 = -1;
+    private Endereco meuEndereco;
 
     public Aluno() {
     }
@@ -129,6 +130,14 @@ public class Aluno {
         return "Aluno [matricula=" + matricula + ", nomeCompleto=" + nomeCompleto + ", nota1=" + nota1 + ", nota2="
                 + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4 + ", getMedia()=" + getMedia() + ", getSituacao()="
                 + getSituacao() + "]";
+    }
+
+    public Endereco getMeuEndereco() {
+        return meuEndereco;
+    }
+
+    public void setMeuEndereco(Endereco meuEndereco) {
+        this.meuEndereco = meuEndereco;
     }
 
 }

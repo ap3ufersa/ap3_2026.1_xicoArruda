@@ -17,6 +17,10 @@ public class TestaTurma {
         System.out.println("Nota4");
         xico.setNota4(entrada.nextDouble());
 
+        Endereco enderecoDeXico = new Endereco();
+        enderecoDeXico.setEstado(Estado.PB);
+        xico.setMeuEndereco(enderecoDeXico);
+
         queridosDeAp3.adicionarAluno(xico);
 
         System.out.println(queridosDeAp3.gerarRelatorio());
