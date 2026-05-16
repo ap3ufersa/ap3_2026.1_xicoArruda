@@ -80,9 +80,9 @@ Não tem aula.
 
 ## Unidade 3
 
-### Aula 10 - 29/05/2026 (1,0)
+### Aula 10 - 29/05/2026 (2,0)
 
-- **Tópicos:** Exceptions
+- **Tópicos:** Herança, polimorfismo, exceptions
 - **Exercícios:** [Clique aqui](unidade3/aula10.md)
 - **Prazo de entrega:** 29/05/2026 até 22:30h
 

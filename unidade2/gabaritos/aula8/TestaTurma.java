@@ -7,7 +7,9 @@ public class TestaTurma {
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("Nomezinho?");
+        //xico.nomeCompleto = "Xico";
         xico.setNomeCompleto(entrada.nextLine());
+
         System.out.println("Nota1");
         xico.setNota1(entrada.nextDouble());
         System.out.println("Nota2");
@@ -18,8 +20,10 @@ public class TestaTurma {
         xico.setNota4(entrada.nextDouble());
 
         Endereco enderecoDeXico = new Endereco();
-        enderecoDeXico.setEstado(Estado.PB);
         xico.setMeuEndereco(enderecoDeXico);
+
+        //Produto sabonete;
+        //sabonete.setCategoria(CategoriaProduto.ALIMENTO);
 
         queridosDeAp3.adicionarAluno(xico);
 
