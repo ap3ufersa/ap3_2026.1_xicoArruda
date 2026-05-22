@@ -54,7 +54,7 @@ Não tem aula.
 - **Exercícios:** [Clique aqui](unidade2/aula6.md)
 - **Prazo de entrega:** 24/04/2026 até 22:30h
 
-### Aula § - 01/05/2026 (sexta-feira) - Feriado do Dia do Trabalho
+### Aula § - 01/05/2026 (sexta-feira) - Feriado do Dia do Trabalhador
 
 Não tem aula.
 
@@ -105,7 +105,7 @@ Não tem aula.
 ### Aula 13 - 26/06/2026 (1,0)
 
 - **Tópicos:** Multithread
-- **Exercícios:** Antes de salvar em arquivo, gere os veículos no ArrayList de forma multithreaded, usando a classe java.lang.Thread, com 3 threads (clássicas ou virtuais).
+- **Exercícios:** Antes de salvar em arquivo, gere os objetos no ArrayList de forma multithreaded, usando a classe java.lang.Thread, com 3 threads (clássicas ou virtuais).
 - **Prazo de entrega:** 26/06/2026 até 22:30h
 
 ---
