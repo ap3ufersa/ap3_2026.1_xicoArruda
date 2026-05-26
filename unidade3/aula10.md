@@ -1,12 +1,25 @@
-### U2 - Aula 9 - 08/05/2026 (2,0) - Visibilidade, composição
+### U3 - Aula 10 - 29/05/2026 (2,0) - Herança
 
 ### 1. Conceitos
 
-- **Debugging em tempos de IA**: encontrar e corrigir defeitos no código. IA erra com confiança. Fazer no vscode...
+- **Herança** (`extends`): mecanismo pelo qual uma subclasse absorve atributos e métodos de uma superclasse. `Aluno extends Pessoa` significa que `Aluno` **é uma** `Pessoa` — tem `nome` e `endereco` sem redeclará-los, e acrescenta `matricula`. A relação é unidirecional: a superclasse não conhece as subclasses.
 
-- **Scanner**: classe de `java.util` que lê entrada do usuário pelo terminal.
+  O construtor da subclasse **deve** chamar `super(...)` como primeira instrução para inicializar a parte herdada — caso contrário o compilador rejeita.
 
-- Private, public, protected (+, -, #)
+  ```java
+  public Aluno(String nome, Endereco endereco, String matricula) {
+      super(nome, endereco); // inicializa Pessoa
+      this.matricula = matricula;
+  }
+  ```
+
+  Herança deve modelar uma relação semântica real de identidade. O teste: "um `Aluno` **é uma** `Pessoa`?" — sim. "Um `Estoque` **é um** `Produto`?" — não; nesse caso usa-se composição.
+
+- **`@Override`**: anotação que indica que o método sobrescreve um da superclasse, e o compilador valida.
+
+- **Composição** (`o--`): `Pessoa` **tem um** `Endereco`. Modela posse, não identidade.
+
+- **`enum`**: tipo com valores fixos. `Estado.RN` é mais seguro que `"RN"` (evita-se números mágicos).
 
 ### Pessoa com Herança:
 
