@@ -2,7 +2,7 @@
 
 ### 1. Conceitos
 
-- **Herança** (`extends`): mecanismo pelo qual uma subclasse absorve atributos e métodos de uma superclasse. `Aluno extends Pessoa` significa que `Aluno` **é uma** `Pessoa` — tem `nome` e `endereco` sem redeclará-los, e acrescenta `matricula`. A relação é unidirecional: a superclasse não conhece as subclasses.
+- **Herança** (`extends`): mecanismo pelo qual uma subclasse absorve atributos e métodos de uma superclasse. `Aluno extends Pessoa` significa que `Aluno` **é uma** `Pessoa` — tem `nomeCompleto` e `endereco` sem redeclará-los. A superclasse não conhece as subclasses.
 
   O construtor da subclasse **deve** chamar `super(...)` como primeira instrução para inicializar a parte herdada — caso contrário o compilador rejeita.
 
@@ -19,38 +19,52 @@
 
 - **Composição** (`o--`): `Pessoa` **tem um** `Endereco`. Modela posse, não identidade.
 
-- **`enum`**: tipo com valores fixos. `Estado.RN` é mais seguro que `"RN"` (evita-se números mágicos).
+- Herança é muito usada em frameworks (swing, spring), no android, em exceptions. Prefira composição.
 
-### Pessoa com Herança:
+### Diagrama completo:
 
 ```mermaid
 classDiagram
 direction BT
 
 class Pessoa {
-    - nome: String
+    - nomeCompleto: String
     - endereco: Endereco
-    + Pessoa(nome, endereco)
-    // get, set, toString()
-}
-
-class Aluno {
-    - matricula: String
-    + Aluno()
-    + Aluno(nome, endereco, matricula)
+    + Pessoa()
+    + Pessoa(nome: String, endereco: Endereco)
     // get, set, toString()
 }
 
 class Professor {
     - salario: double
-    + Professor()
-    + Professor(nome, endereco, salario)
+    + Professor(nomeCompleto: String, endereco: Endereco, salarioBruto: double)
+    + getSalarioBruto(): double
+    + getSalarioLiquido(): double
+    // set, toString()
+}
+
+class Aluno {
+    - matricula: int
+    - nota1: double
+    - nota2: double
+    - nota3: double
+    - nota4: double
+    + Aluno()
+    + Aluno(nomeCompleto: String)
+    + getMedia(): double
+    + getSituacao(): String
+    + isAprovadoMedia(): boolean
+    + getNomeMaiusculo(): String
+    + getNomeMinusculo(): String
     // get, set, toString()
 }
 
-Aluno --|> Pessoa : é_uma
-Professor --|> Pessoa : é_uma
-Pessoa "1" o-- "1" Endereco : tem_um
+class TestaHeranca {
+    + main(args: String[]): void
+}
+
+Professor --|> Pessoa : é_um
+Aluno --|> Pessoa : é_um
 ```
 
 ### Endereço:
@@ -81,14 +95,22 @@ Endereco "1" --> "1" Estado : tem_um
 ### Main:
 
 ```java
-package package_heranca;
-
-public class MainHeranca {
+public class TestaHeranca {
     public static void main(String[] args) {
-        Endereco enderecoAluno = new Endereco("Rua do Aluno", "Centro", "Angicos", Estado.RN);
-        Endereco enderecoProf = new Endereco("Rua do Professor", "Centro", "Angicos", Estado.RN);
+        Endereco enderecoAluno = new Endereco();
+        enderecoAluno.setRua("Rua do Aluno");
+        enderecoAluno.setCidade("Angicos");
+        enderecoAluno.setEstado(Estado.RN);
 
-        Aluno umAluno = new Aluno("Joãozinho da Silva", enderecoAluno, "20231057");
+        Endereco enderecoProf = new Endereco();
+        enderecoProf.setRua("Rua do Professor");
+        enderecoProf.setCidade("Angicos");
+        enderecoProf.setEstado(Estado.RN);
+
+        Aluno umAluno = new Aluno("Joãozinho da Silva");
+        umAluno.setMatricula(20231057);
+        umAluno.setMeuEndereco(enderecoAluno);
+
         Professor umProfessor = new Professor("Josefa de Arruda", enderecoProf, 1500.00);
 
         System.out.println(umAluno);

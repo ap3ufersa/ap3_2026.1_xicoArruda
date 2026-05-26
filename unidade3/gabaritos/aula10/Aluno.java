@@ -1,7 +1,6 @@
 public class Aluno {
 
     int matricula = -1;
-    String nomeCompleto = "SemNome";
     double nota1 = -1;
     double nota2 = -1;
     double nota3 = -1;
@@ -11,7 +10,7 @@ public class Aluno {
     public Aluno() {
     }
 
-    public Aluno(String nomeDoAluno) {
+    public Aluno(String nomeCompleto) {
         nomeCompleto = validarNome(nomeDoAluno);
     }
 

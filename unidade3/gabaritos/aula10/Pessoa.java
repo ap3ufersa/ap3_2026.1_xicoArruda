@@ -8,7 +8,7 @@
  */
 
 public class Pessoa {
-    private String nome;
+    private String nomeCompleto;
     private Endereco endereco;
 
     public Pessoa() {
