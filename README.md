@@ -51,7 +51,7 @@ Não tem aula.
 ### Aula 6 - 24/04/2026 (0,0)
 
 - **Tópicos:** Scanner, datas
-- **Exercícios:** [Clique aqui](unidade2/aula6.md)
+- **Exercícios:** [Clique aqui](unidade2/aula0.md)
 - **Prazo de entrega:** 24/04/2026 até 22:30h
 
 ### Aula § - 01/05/2026 (sexta-feira) - Feriado do Dia do Trabalhador
@@ -73,7 +73,7 @@ Não tem aula.
 ### Aula 9 - 22/05/2026 (0,0)
 
 - **Tópicos:** Herança e Polimorfismo
-- **Exercícios:** [Clique aqui](unidade2/aula9.md)
+- **Exercícios:** [Clique aqui](unidade2/aula0.md)
 - **Prazo de entrega:** 22/05/2026 até 22:30h
 
 ---
@@ -82,7 +82,7 @@ Não tem aula.
 
 ### Aula 10 - 29/05/2026 (2,0)
 
-- **Tópicos:** Herança, polimorfismo, exceptions
+- **Tópicos:** Herança, polimorfismo
 - **Exercícios:** [Clique aqui](unidade3/aula10.md)
 - **Prazo de entrega:** 29/05/2026 até 22:30h
 
