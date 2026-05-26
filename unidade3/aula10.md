@@ -21,7 +21,7 @@
 
 - Herança é muito usada em frameworks (swing, spring), no android, em exceptions. Prefira composição.
 
-### Diagrama completo:
+### Diagrama de classes:
 
 ```mermaid
 classDiagram
