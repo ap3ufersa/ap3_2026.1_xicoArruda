@@ -8,35 +8,50 @@
 
 - Private, public, protected (+, -, #)
 
-### Pessoa com Herança:
+### Pessoa com Polimorfismo e Abstract:
 
 ```mermaid
 classDiagram
 direction BT
 
 class Pessoa {
+    <<abstract>>
     - nome: String
     - endereco: Endereco
     + Pessoa(nome, endereco)
-    // get, set, toString()
+    + getCargaHorariaSemanal()*  int
+    // get, set, toString() polimórfico
 }
 
 class Aluno {
     - matricula: String
+    - horasDeEstudoDiarias : int
     + Aluno()
     + Aluno(nome, endereco, matricula)
+    + getCargaHorariaSemanal()  int
     // get, set, toString()
 }
 
 class Professor {
     - salario: double
+    - horasDeEstudoDiarias
+    - horasDeAulaSemanais
+    - horasReunioesSemanais
     + Professor()
     + Professor(nome, endereco, salario)
+    + getCargaHorariaSemanal()  int
+    + calcularSalario() double
     // get, set, toString()
+}
+
+class Remuneravel {
+    <<interface>>
+    + calcularSalario() double
 }
 
 Aluno --|> Pessoa : é_uma
 Professor --|> Pessoa : é_uma
+Professor ..|> Remuneravel : implementa
 Pessoa "1" o-- "1" Endereco : tem_um
 ```
 
@@ -68,18 +83,27 @@ Endereco "1" --> "1" Estado : tem_um
 ### Main:
 
 ```java
-package package_heranca;
+package package_polimorfismo;
 
-public class MainHeranca {
+public class MainPolimorfismo {
     public static void main(String[] args) {
-        Endereco enderecoAluno = new Endereco("Rua do Aluno", "Centro", "Angicos", Estado.RN);
-        Endereco enderecoProf = new Endereco("Rua do Professor", "Centro", "Angicos", Estado.RN);
+        Endereco enderecoAluno = new Endereco("Rua do Aluno", "Centro", "Angicos");
+        Endereco enderecoProf = new Endereco("Rua do Professor", "Centro", "Angicos");
 
         Aluno umAluno = new Aluno("Joãozinho da Silva", enderecoAluno, "20231057");
-        Professor umProfessor = new Professor("Josefa de Arruda", enderecoProf, 1500.00);
+        umAluno.setHorasDeEstudoDiarias(2);
 
+        Professor umProfessor = new Professor("Josefa de Arruda", enderecoProf, 1500.00);
+        umProfessor.setHorasDeAulaSemanais(8);
+        umProfessor.setHorasDeEstudoDiarias(2);
+        umProfessor.setHorasReunioesSemanais(2);
+
+        Pessoa polimorfica = new Professor("Um professor polimórfico", enderecoProf, 15000.00);
+
+        System.out.println();
         System.out.println(umAluno);
         System.out.println(umProfessor);
+        System.out.println(polimorfica);
     }
 }
 ```
