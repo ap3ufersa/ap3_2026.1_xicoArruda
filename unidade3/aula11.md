@@ -2,22 +2,14 @@
 
 #### 1. Agregação, composição, herança e portas em UML
 
-- APS do prof. Wellington
+- [APS - prof. Wellington](gabaritos/aula11/aula11_1_Portas.md)
 
 #### 2. Pessoa, aluno, professor, herança e composição
-- Modelagem em APS do prof. Wellington
 
-- Implementação em AP3 com Prof. Xico
+- [Modelagem em APS do prof. Wellington](gabaritos/aula11/aula11_2_Pessoa_Aluno_Professor.md)
+
+- [Implementação em AP3 com Prof. Xico](gabaritos/aula11/cadastro-heranca-javafx/)
 
 ### 3. Modelagem de Veículos
-- Exercícios para nota em AP3 com Prof. Xico
 
-
-
-### Exercícios em Sala
-
-Gabaritos para ajudar nos exercícios [aqui](gabaritos).
-
-Após concluir cada questão, faça _commit_ localmente e sincronize-o (_push_) com o seu repositório remoto no GitHub. Conforme [figura](https://drive.google.com/open?id=1dV5TwUdMxSmh80sx13epVcJFewIT_MVk).
-
-Entregue a folha assinada!
+- [Exercícios para nota em AP3 com Prof. Xico](gabaritos/aula11/aula11_3_Veiculos.md)

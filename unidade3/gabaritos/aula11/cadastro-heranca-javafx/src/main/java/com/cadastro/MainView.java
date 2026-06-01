@@ -30,7 +30,7 @@ public class MainView {
         root.setPadding(new Insets(16));
 
         stage.setScene(new Scene(root, 1000, 600));
-        stage.setTitle("Cadastro — Herança");
+        stage.setTitle("Cadastro de Alunos e Professores com Herança");
         stage.show();
     }
 
