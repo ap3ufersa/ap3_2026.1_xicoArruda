@@ -1,40 +1,27 @@
+package heranca;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
+    private final List<Aluno> osAlunos = new ArrayList<>();
 
-    List<Aluno> osAlunos = new ArrayList<>();
+    public void adicionarAluno(Aluno aluno) { osAlunos.add(aluno); }
 
-    void adicionarAluno(Aluno novoAluno) {
-        osAlunos.add(novoAluno);
+    public void listarAlunos() { osAlunos.forEach(System.out::println); }
+
+    public double getMediaDaTurma() {
+        return osAlunos.stream().mapToDouble(Aluno::getMedia).average().orElse(0);
     }
 
-    void listarAlunos() {
-        for (Aluno umAluno : osAlunos) {
-            System.out.println(umAluno);
+    public String gerarRelatorio() {
+        StringBuilder sb = new StringBuilder();
+        for (Aluno a : osAlunos) {
+            sb.append(a.getNomeMaiusculo())
+              .append(" | média: ").append(String.format("%.2f", a.getMedia()))
+              .append(" | ").append(a.getSituacao()).append("\n");
         }
-    }
-
-    double getMediaDaTurma() {
-        double mediaGeral = -1;
-        double soma = 0;
-        for (Aluno umAluno : osAlunos)
-            soma = soma + umAluno.getMedia();
-
-        mediaGeral = soma / osAlunos.size();
-
-        return mediaGeral;
-    }
-
-    String gerarRelatorio() {
-        String textoFinal = "";
-        for (Aluno umAluno : osAlunos) {
-            textoFinal += umAluno.getNomeMaiusculo();
-            textoFinal += " media=" + umAluno.getMedia();
-            textoFinal += " situacao=" + umAluno.getSituacao();
-            textoFinal += "\n";
-        }
-        textoFinal += " media da turma=" + getMediaDaTurma();
-        return textoFinal;
+        sb.append("Média da turma: ").append(String.format("%.2f", getMediaDaTurma()));
+        return sb.toString();
     }
 }

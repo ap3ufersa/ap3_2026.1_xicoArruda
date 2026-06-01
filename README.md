@@ -92,13 +92,13 @@ Não tem aula.
 
 ### Aula 11 - 12/06/2026 (2,0)
 
-- **Tópicos:** Exceptions
+- **Tópicos:** Herança, Polimorfismo
 - **Exercícios:** [Clique aqui](unidade3/aula11.md)
 - **Prazo de entrega:** 12/06/2026 até 22:30h
 
 ### Aula 12 - 19/06/2026 (1,0)
 
-- **Tópicos:** Multithread
+- **Tópicos:** Exceptions
 - **Exercícios:** [Clique aqui](unidade3/aula12.md)
 - **Prazo de entrega:** 19/06/2026 até 22:30h
 

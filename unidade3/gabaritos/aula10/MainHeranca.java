@@ -1,14 +1,16 @@
-//Gere a documentação com: javadoc -d documentacao -sourcepath . *.java
+package heranca;
 
 public class MainHeranca {
     public static void main(String[] args) {
-        Endereco enderecoAluno = new Endereco("Rua do Aluno", "Centro", "Angicos");
-        Endereco enderecoProf = new Endereco("Rua do Professor", "Centro", "Angicos");
+        Endereco endAluno = new Endereco("Rua do Aluno", "Centro", "Angicos", Estado.RN);
+        Endereco endProf  = new Endereco("Rua do Professor", "Centro", "Angicos", Estado.RN);
 
-        Aluno umAluno = new Aluno("Joãozinho da Silva", enderecoAluno, "20231057");
-        Professor umProfessor = new Professor("Josefa de Arruda", enderecoProf, 1500.00);
+        Aluno     aluno = new Aluno("Joãozinho da Silva", endAluno, 20231057);
+        Professor prof  = new Professor("Josefa de Arruda", endProf, 1500.00);
 
-        System.out.println(umAluno);
-        System.out.println(umProfessor);
+        aluno.setNota1(8); aluno.setNota2(6); aluno.setNota3(9); aluno.setNota4(7);
+
+        System.out.println(aluno);
+        System.out.println(prof);
     }
 }

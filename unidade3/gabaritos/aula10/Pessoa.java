@@ -1,42 +1,23 @@
-/**
- * Superclasse, base que representa uma pessoa genérica.
- * Contém atributos comuns como nome e endereço.
- *
- * @author Francisco Arruda
- * @version 1.0
- * @since 2025-06-27
- */
+package heranca;
 
 public class Pessoa {
     private String nomeCompleto;
     private Endereco endereco;
 
-    public Pessoa() {
-    }
+    public Pessoa() {}
 
-    public Pessoa(String nome, Endereco endereco) {
-        this.nome = nome;
+    public Pessoa(String nomeCompleto, Endereco endereco) {
+        this.nomeCompleto = nomeCompleto;
         this.endereco = endereco;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+    public String getNomeCompleto()            { return nomeCompleto; }
+    public void   setNomeCompleto(String v)    { this.nomeCompleto = v; }
+    public Endereco getEndereco()              { return endereco; }
+    public void   setEndereco(Endereco v)      { this.endereco = v; }
 
     @Override
     public String toString() {
-        return "Nome: " + nome + ", Endereço: " + endereco;
+        return "Nome: " + nomeCompleto + ", Endereço: " + endereco;
     }
 }

@@ -1,30 +1,25 @@
-/**
- * Representa um professor, que é uma especialização de Pessoa.
- * Adiciona o atributo salário.
- *
- * @author SeuNome
- * @version 1.0
- * @since 2025-06-27
- */
+package heranca;
 
 public class Professor extends Pessoa {
-    private double salario;
+    private double salarioBruto;
 
-    public Professor(String nome, Endereco endereco, double salario) {
-        super(nome, endereco);
-        this.salario = salario;
+    public Professor() {}
+
+    public Professor(String nomeCompleto, Endereco endereco, double salarioBruto) {
+        super(nomeCompleto, endereco);
+        this.salarioBruto = salarioBruto;
     }
 
-    public double getSalario() {
-        return salario;
-    }
+    public double getSalarioBruto()          { return salarioBruto; }
+    public void   setSalarioBruto(double v)  { this.salarioBruto = v; }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
+    /** Imposto: 27,5% */
+    public double getSalarioLiquido()        { return salarioBruto * 0.725; }
 
     @Override
     public String toString() {
-        return super.toString() + ", Salário: " + salario;
+        return super.toString()
+            + ", Salário bruto: " + String.format("%.2f", salarioBruto)
+            + ", Salário líquido: " + String.format("%.2f", getSalarioLiquido());
     }
 }
