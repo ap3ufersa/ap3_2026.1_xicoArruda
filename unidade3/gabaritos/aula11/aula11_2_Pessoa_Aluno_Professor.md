@@ -2,9 +2,9 @@
 
 ### 1. Conceitos
 
-- **Herança** (`extends`): `Aluno extends Pessoa` e `Professor extends Pessoa`. Subclasses herdam `nomeCompleto` e `endereco` sem redeclará-los. O construtor da subclasse chama `super(nomeCompleto, endereco)` como primeira instrução.
+- **Herança** (`extends`): `Aluno extends Pessoa` e `Professor extends Pessoa`. Subclasses herdam `nomeCompleto` e `endereco`.
 
-- **Composição** (`o--`): `Pessoa` **tem um** `Endereco`. Modela posse, não identidade.
+- **Composição** (`o--`): `Pessoa` **tem um** `Endereco`. `Endereço` tem um estado.
 
 - **Polimorfismo**: referência do tipo `Pessoa` pode apontar para `Aluno` ou `Professor`. O método chamado é resolvido em tempo de execução pelo tipo real do objeto.
 
@@ -17,7 +17,7 @@ System.out.println(p); // chama toString() de Aluno
 
 ```mermaid
 classDiagram
-direction BT
+direction TB
 
 class Pessoa {
     - nomeCompleto: String
@@ -90,13 +90,3 @@ public class MainHeranca {
     }
 }
 ```
-
-### Exercícios em Sala
-
-Gabaritos para ajudar no exercícios [aqui](gabaritos).
-
-Interface gráfica aqui [cadastro-heranca-javafx](gabaritos/aula11/cadastro-heranca-javafx).
-
-Após concluir cada questão, faça _commit_ localmente e sincronize-o (_push_) com o seu repositório remoto no GitHub. Conforme [figura](https://drive.google.com/open?id=1dV5TwUdMxSmh80sx13epVcJFewIT_MVk).
-
-Entregue a folha assinada!
