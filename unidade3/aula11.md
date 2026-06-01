@@ -12,4 +12,4 @@
 
 ### 3. Modelagem de veículos
 
-- Veículo, moto, ônibus e carro em *AP3* com [prof. Xico](aula11/aula11_3_Veiculos.md)
+- Veículo, moto, ônibus e carro em *AP3* com [prof. Xico](aula11/3_veiculos.md)
