@@ -4,13 +4,13 @@
 
 - **Herança** (`extends`): `Aluno extends Pessoa` e `Professor extends Pessoa`. Subclasses herdam `nomeCompleto` e `endereco`.
 
-- **Composição** (`o--`): `Pessoa` **tem um** `Endereco`. `Endereço` tem um `Estado`.
+- **Composição** (`o--`): `Pessoa` **tem um** `Endereco`, que pode estar em branco. `Endereço` tem um `Estado`, obrigatoriamente.
 
-- **Polimorfismo**: referência do tipo `Pessoa` pode apontar para `Aluno` ou `Professor`. O método chamado é resolvido em tempo de execução pelo tipo real do objeto.
+- **Polimorfismo**: referência na JVM para `Pessoa` pode apontar para `Aluno` ou `Professor`. O método chamado é resolvido em tempo de execução.
 
 ```java
-Pessoa p = new Aluno("João", endereco, 20231057);
-System.out.println(p); // chama toString() de Aluno
+    Pessoa p = new Aluno("João", endereco, 20231057);
+    System.out.println(p); // chama toString() de Aluno
 ```
 
 ### Diagrama de classes:
@@ -92,6 +92,6 @@ public class MainHeranca {
 }
 ```
 
-### Herança com Interface Gráfica:
+### Exemplo de Herança com GUI:
 
-- Uma inteface gráfica usando herança está [aqui](../gabaritos/aula11).
+- Uma inteface gráfica usando herança [aqui](../gabaritos/aula11).
