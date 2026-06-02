@@ -2,14 +2,12 @@
 
 #### 1. Agregação, composição, herança
 
-- Modelagem de portas em APS com [prof. Wellington](aula11/1_portas.md)
+- Modelagem de portas em [UML](aula11/1_portas.md)
 
-#### 2. Herança, composição e polimorfismo
+#### 2. Herança, composição, polimorfismo
 
-- Pessoa, aluno e professor em *APS* com [prof. Wellington](aula11/2.1_pessoa_aps.md)
-
-- Pessoa, aluno e professor em *AP3* com [prof. Xico](aula11/2.2_pessoa_ap3.md)
+- Pessoa, aluno e professor em [UML e Java](aula11/2_pessoa.md)
 
 #### 3. Modelagem de veículos
 
-- Veículo, moto, ônibus e carro em *AP3* com [prof. Xico](aula11/3_veiculos.md)
+- Veículo, moto, ônibus e carro em [Java](aula11/3_veiculos.md)
