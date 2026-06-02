@@ -1,5 +1,3 @@
-package heranca;
-
 public class Professor extends Pessoa {
     private double salarioBruto;
 

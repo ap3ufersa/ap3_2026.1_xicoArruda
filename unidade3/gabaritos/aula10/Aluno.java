@@ -1,5 +1,3 @@
-package heranca;
-
 public class Aluno extends Pessoa {
     private int    matricula;
     private double nota1;

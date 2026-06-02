@@ -1,5 +1,3 @@
-package heranca;
-
 public class Pessoa {
     private String nomeCompleto;
     private Endereco endereco;

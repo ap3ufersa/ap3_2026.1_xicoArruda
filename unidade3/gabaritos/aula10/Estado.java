@@ -1,5 +1,3 @@
-package heranca;
-
 public enum Estado {
     PB, RN, SP, RJ
 }

@@ -1,5 +1,3 @@
-package heranca;
-
 public class MainHeranca {
     public static void main(String[] args) {
         Endereco endAluno = new Endereco("Rua do Aluno", "Centro", "Angicos", Estado.RN);

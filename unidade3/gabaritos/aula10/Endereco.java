@@ -1,4 +1,3 @@
-package heranca;
 
 public class Endereco {
     private String rua;

@@ -1,8 +1,6 @@
-package heranca;
-
 import java.util.Scanner;
 
-public class TestaTurma {
+public class MainTurma {
     public static void main(String[] args) {
         Turma turma = new Turma();
         Scanner sc   = new Scanner(System.in);
