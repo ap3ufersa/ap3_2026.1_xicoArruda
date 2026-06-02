@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// Importar as classes da pasta aula10
-import aula10.*;
-
-public class MainPolimorfica {
+public class MainPolimorfismo {
     public static void main(String[] args) {
         Endereco endAluno = new Endereco("Rua do Aluno", "Centro", "Angicos", Estado.RN);
         Endereco endProf = new Endereco("Rua do Professor", "Centro", "Angicos", Estado.RN);
