@@ -17,6 +17,5 @@ public class Professor extends Pessoa {
     public double getSalarioBruto()         { return salarioBruto.get(); }
     public void   setSalarioBruto(double v) { salarioBruto.set(v); }
 
-    /** INSS simplificado: 11% */
     public double getSalarioLiquido()       { return salarioBruto.get() * 0.89; }
 }

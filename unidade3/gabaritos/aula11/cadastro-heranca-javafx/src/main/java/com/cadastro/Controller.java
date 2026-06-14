@@ -89,8 +89,9 @@ public class Controller {
     }
 
     private Endereco parseEndereco(String rua, String bairro, String cidade, Estado estado) {
-        if (cidade == null || cidade.isBlank()) throw new IllegalArgumentException("Cidade é obrigatória.");
-        if (estado == null) throw new IllegalArgumentException("Estado é obrigatório.");
+        //Xico - Seguindo a modelagem
+        //if (cidade == null || cidade.isBlank()) throw new IllegalArgumentException("Cidade é obrigatória.");
+        //if (estado == null) throw new IllegalArgumentException("Estado é obrigatório.");
 
         return new Endereco(rua == null ? "" : rua.trim(),bairro == null ? "" : bairro.trim(), cidade.trim(), estado);
     }
