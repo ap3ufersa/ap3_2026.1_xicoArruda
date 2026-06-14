@@ -90,19 +90,19 @@ Não tem aula.
 
 Não tem aula.
 
-### Aula 11 - 12/06/2026 (2,0)
+### Aula 11 - 12/06/2026 (3,0)
 
 - **Tópicos:** Herança, Polimorfismo
 - **Exercícios:** [Clique aqui](unidade3/aula11.md)
 - **Prazo de entrega:** 12/06/2026 até 22:30h
 
-### Aula 12 - 19/06/2026 (1,0)
+### Aula 12 - 19/06/2026 (0,0)
 
 - **Tópicos:** Exceptions
 - **Exercícios:** [Clique aqui](unidade3/aula12.md)
 - **Prazo de entrega:** 19/06/2026 até 22:30h
 
-### Aula 13 - 26/06/2026 (1,0)
+### Aula 13 - 26/06/2026 (0,0)
 
 - **Tópicos:** Multithread
 - **Exercícios:** Antes de salvar em arquivo, gere os objetos no ArrayList de forma multithreaded, usando a classe java.lang.Thread, com 3 threads (clássicas ou virtuais).
